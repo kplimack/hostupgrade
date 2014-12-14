@@ -27,3 +27,11 @@ attribute 'hostupgrade/upgrade_system',
           :required => true,
           :recipes => [ 'hostupgrade::default' ],
           :default => "true"
+
+attribute 'hostupgrade/first_time_only',
+          :display_name => "Run First-Time",
+          :description => "Perform system upgrades only on first-run",
+          :type => "string",
+          :required => true,
+          :recipes => [ 'hostupgrade::default' ],
+          :default => "true"
