@@ -1,7 +1,7 @@
 HOSTUPGRADE Cookbook
 =====
 <br />
-Basic cookbook for upgrading linux hosts.  Check for updates and then perform an upgrade.  Flag available to only run once.
+Basic cookbook for upgrading linux hosts.  Check for updates and then perform an upgrade.  Flag available to only run once, the first time.
 
 >#### Supported Chef Versions
 >Chef 12 and below
@@ -50,6 +50,23 @@ _____
     <td><tt>true</tt></td>
   </tr>
 </table>
+<br />
+<br />
+<br />
+# Recipe Usage
+
+### php-fpm::upgrade (required)
+
+Perform host update/upgrade. Include `hostupgrade::upgrade` in your node's `run_list`:
+
+```json
+{
+  "name":"my_node",
+  "run_list": [
+    "recipe[hostupgrade::upgrade]"
+  ]
+}
+```
 <br />
 <br />
 <br />
