@@ -46,7 +46,7 @@ _____
   <tr>
     <td><tt>["hostupgrade"]["first_time_only"]</tt></td>
     <td>Boolean</td>
-    <td>Only Perform Upgrades on First-Run</td>
+    <td>Only Perform Updates & Upgrades on First-Run</td>
     <td><tt>true</tt></td>
   </tr>
 </table>

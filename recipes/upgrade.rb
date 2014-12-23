@@ -23,6 +23,7 @@ if node["hostupgrade"]["update_system"]
         bash "Run apt-get update" do
             code "apt-get update"
             action :run
+            not_if { node.attribute?("upgrade_complete") && node["hostupgrade"]["first_time_only"] }
         end
 
         #Check if we are upgrading the system as well
@@ -54,6 +55,7 @@ if node["hostupgrade"]["update_system"]
             code "yum check-update"
             returns [0, 100]
             action :run
+            not_if { node.attribute?("upgrade_complete") && node["hostupgrade"]["first_time_only"] }
         end
 
         #Check if we are upgrading the system as well
