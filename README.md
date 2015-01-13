@@ -14,7 +14,7 @@ Basic cookbook for upgrading linux hosts.  Check for updates and then perform an
 >CenOS 6.x and above
 >Fedora 20
 >#### Planned Improvements
->0.1.2 - Add Windows Hosts
+>0.2.0 - Add Windows Hosts
 
 No additional cookboks are required.
 <br />
