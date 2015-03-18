@@ -62,6 +62,7 @@ platforms:
       customize:
         memory: 1024
         cpus: 1
+  - name: debian-7.4
 
 suites:
   - name: default
