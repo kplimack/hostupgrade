@@ -69,3 +69,9 @@ suites:
     run_list:
       - recipe[hostupgrade::upgrade]
     attributes:
+  - name: compiletime
+    run_list:
+      - recipe[hostupgrade::upgrade]
+    attributes:
+      hostupgrade:
+        compile_time: true

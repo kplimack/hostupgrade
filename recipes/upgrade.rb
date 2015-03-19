@@ -25,12 +25,26 @@ if node["hostupgrade"]["update_system"]
     case node[:platform]
     when "ubuntu", "debian"  #Debian based systems
 
-        #Do apt-get update
-        bash "Run apt-get update" do
+      if node["hostupgrade"]["compile_time"]
+        bash "apt-get-compile-time" do
+          code "apt-get update"
+          action :nothing
+        end.run_action(:run)
+      end
+
+      unless ( node.attribute?("upgrade_complete") && node["hostupgrade"]["first_time_only"] ) || ( node["hostupgrade"]["first_time_only"] && solo_upgrade_complete )
+        if node["hostupgrade"]["compile_time"]
+          bash "apt-get-compile-time" do
             code "apt-get update"
-            action :run
-            not_if { ( node.attribute?("upgrade_complete") && node["hostupgrade"]["first_time_only"] ) || ( node["hostupgrade"]["first_time_only"] && solo_upgrade_complete ) }
+            action :nothing
+          end.run_action(:run)
+        else
+          bash "Run apt-get update" do
+            code "apt-get update"
+            action :nothing
+          end
         end
+      end
 
         #Check if we are upgrading the system as well
         if node["hostupgrade"]["upgrade_system"]
