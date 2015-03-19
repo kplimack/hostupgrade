@@ -35,3 +35,4 @@ attribute 'hostupgrade/first_time_only',
           :required => true,
           :recipes => [ 'hostupgrade::default' ],
           :default => "true"
+depends 'build-essential'
