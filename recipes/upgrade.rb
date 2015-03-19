@@ -70,6 +70,13 @@ if node["hostupgrade"]["update_system"]
 
   when "centos", "redhat", "fedora"   #Fedora based systems
 
+    if node["hostupgrade"]["compile_time"]
+      bash "Run yum update" do
+        code "yum update -y"
+        action :nothing
+      end.run_action(:run)
+    end
+
     #Do yum check-update
     bash "Run yum check-update" do
       code "yum check-update"
