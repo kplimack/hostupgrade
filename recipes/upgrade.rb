@@ -50,6 +50,10 @@ if node["hostupgrade"]["update_system"]
     if node["hostupgrade"]["upgrade_system"]
 
       #Do apt-get upgrade
+      bash "apt-get-update" do
+        code "apt-get update"
+        action :run
+      end
       bash "Run apt-get upgrade" do
         code "DEBIAN_FRONTEND=noninteractive apt-get dist-upgrade -y"
         action :run
